@@ -6,7 +6,7 @@ import Footer from '@components/Footer';
 
 export const metadata = {
     title: 'Pacel Labs Auth',
-    description: 'Basic login and logout functionality'
+    description: 'Basic login and logout functionality',
 };
 
 const RootLayout = ({ children }) => {
