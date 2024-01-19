@@ -2,7 +2,7 @@ const Home = () => {
   return (
     <section className="w-full flex-center flex-col">
       <h1 className="head_text blue_gradient text-center sm: text-6xl">
-        Pacel Labs Auth
+        Pacer Labs Auth
         <br />
         <span className="head_text text-center">Basic Login and Logout Functionality</span>
       </h1>
