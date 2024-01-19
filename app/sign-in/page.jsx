@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Button from "@components/Button";
 import Input from "@components/Input";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "@redux/features/authSlice";
 import { useRouter } from "next/navigation";
 
@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 const SignInPage = () => {
     const dispatch = useDispatch();
     const router = useRouter();
+    const isAuth = useSelector((state) => state?.authReducer?.value?.isAuth);
     const [loginDetails, setLoginDetails] = useState({
         userName: "",
         email: "",
@@ -30,7 +31,16 @@ const SignInPage = () => {
         event.preventDefault();
 
         dispatch(logIn(loginDetails));
-        router.push('/user-dashboard');
+        if(isAuth) {
+            router.push('/user-dashboard');
+            setLoginDetails({
+                userName: "",
+                email: "",
+            });
+
+            return;
+        }
+        alert('Login failed, please try again')
 
         setLoginDetails({
             userName: "",
