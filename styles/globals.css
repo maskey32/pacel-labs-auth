@@ -85,7 +85,7 @@
 }
 
 .outline_btn {
-    @apply rounded-full border border-black bg-transparent py-1.5 px-5 text-black transition-all text-center text-sm font-inter flex items-center justify-center;
+    @apply w-full rounded-lg p-3 border border-black bg-transparent text-black transition-all text-center text-sm font-inter flex items-center justify-center;
 }
 
 .head_text {
@@ -135,7 +135,7 @@
 }
 
 .form_input {
-    @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+    @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0 mb-5;
 }
 
 /* Nav Component */

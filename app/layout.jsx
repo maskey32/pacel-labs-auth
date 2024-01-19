@@ -1,5 +1,6 @@
 import '@styles/globals.css';
 import Provider from '@/components/Provider';
+import { ReduxProvider } from '@redux/provider';
 import Nav from '@/components/Nav';
 import Footer from '@components/Footer';
 
@@ -12,17 +13,18 @@ const RootLayout = ({ children }) => {
   return (
     <html lang='en'>
       <body>
-        <Provider>
-            <div className="main">
-                <div className='gradient' />
-            </div>
+        <ReduxProvider>
+          <Provider>
+              <div className="main">
+                  <div className='gradient' />
+              </div>
 
-            <main className="app sm:px-16 px-6">
-                <Nav />
+              <main className="app sm:px-16 px-6">
                 {children}
-            </main>
-            <Footer />
-        </Provider>
+              </main>
+              <Footer />
+          </Provider>
+        </ReduxProvider>
       </body>
     </html>
   )

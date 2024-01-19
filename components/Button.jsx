@@ -1,7 +1,7 @@
-const Button = ({ onClick, text }) => {
+const Button = ({ onClick, text, type }) => {
     return (
         <button
-            type="button"
+            type={type}
             onClick={onClick}
             className="outline_btn hover:bg-black hover:text-white"
         >
