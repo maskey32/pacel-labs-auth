@@ -4,9 +4,7 @@ const initialState = {
     value: {
         isAuth: false,
         userName: "",
-        id: "",
         email: "",
-        image: "",
     }
 };
 
@@ -21,10 +19,8 @@ export const auth = createSlice({
             return {
                 value: {
                     isAuth: true,
-                    userName: action.payload,
-                    id: "",
-                    email: "",
-                    image: "",
+                    userName: action.payload.userName,
+                    email: action.payload.email,
                 }
             }
         },

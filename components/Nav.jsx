@@ -1,11 +1,13 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Button from "./Button";
 import TitleLink from "./TitleLink";
+import { logOut } from "@redux/features/authSlice";
 
 const Nav = () => {
+    const dispatch = useDispatch();
     const router = useRouter();
     const isAuth = useSelector((state) => state?.authReducer?.value?.isAuth);
 
@@ -13,7 +15,10 @@ const Nav = () => {
         router.push('/sign-in');
     };
 
-    const signOutHandler = () => {};
+    const signOutHandler = () => {
+        router.push('/');
+        dispatch(logOut());
+    };
 
     return (
         <nav className="flex-between w-full mb-16 pt-3">
