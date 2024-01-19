@@ -1,6 +1,7 @@
 import '@styles/globals.css';
 import Provider from '@/components/Provider';
 import Nav from '@/components/Nav';
+import Footer from '@components/Footer';
 
 export const metadata = {
     title: 'Pacel Labs Auth',
@@ -20,6 +21,7 @@ const RootLayout = ({ children }) => {
                 <Nav />
                 {children}
             </main>
+            <Footer />
         </Provider>
       </body>
     </html>

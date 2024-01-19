@@ -1,10 +1,12 @@
 "use client";
 
-import useSetUpProvider from "@/customHooks/useSetupProvider";
+import { useRouter } from "next/navigation";
+import useSetUpProvider from "@/customHooks/useSetUpProvider";
 import Button from "./Button";
 import TitleLink from "./TitleLink";
 
 const Nav = () => {
+    const router = useRouter();
     const { 
         session,
         providers,
@@ -12,12 +14,16 @@ const Nav = () => {
         signOut
     } = useSetUpProvider();
 
+    const signInHandler = (provider) => {
+        signIn(provider.id);
+    };
+
     return (
         <nav className="flex-between w-full mb-16 pt-3">
             <TitleLink />
             <div className="sm:flex hidden">
                 {session?.user ? (
-                    <div className="flex gap-3 md: gap-5">
+                    <div className="flex gap-3 md:gap-5">
                         <Button
                             onClick={signOut}
                             text='Sign Out'
@@ -29,7 +35,7 @@ const Nav = () => {
                             Object.values(providers).map((provider) => (
                             <Button
                                 key={provider.name}
-                                onClick={() => signIn(provider.id)}
+                                onClick={() => signInHandler(provider)}
                                 text='Sign In'
                             />
                         ))}
@@ -37,7 +43,7 @@ const Nav = () => {
                 )}
             </div>
         </nav>
-    )
-}
+    );
+};
 
 export default Nav;
