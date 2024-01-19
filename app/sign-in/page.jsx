@@ -40,12 +40,11 @@ const SignInPage = () => {
 
             return;
         }
-        alert('Login failed, please try again')
-
         setLoginDetails({
             userName: "",
             email: "",
         });
+        alert('Login failed, please try again')
     };
 
     return (
