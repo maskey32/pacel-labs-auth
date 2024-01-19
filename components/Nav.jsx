@@ -2,11 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import useSetUpProvider from "@/customHooks/useSetUpProvider";
+import { logIn, logOut } from "@redux/features/authSlice";
+import { useDispatch } from "react-redux";
 import Button from "./Button";
 import TitleLink from "./TitleLink";
 
 const Nav = () => {
     const router = useRouter();
+    const dispatch = useDispatch();
     const { 
         session,
         providers,
